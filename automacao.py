@@ -21,8 +21,5 @@ class Navegador:
                                     "Umidade": [self.umidade],
                                     "Data": [self.data],
                                     "Hora": [self.hora_atual]})
-        self.dados.to_csv("historico.csv", index=False, mode="a", header=None)
+        self.dados.to_csv('historico.csv', index=False, mode="a", header=None)
         self.driver.quit()
-
-
-#Navegador()
