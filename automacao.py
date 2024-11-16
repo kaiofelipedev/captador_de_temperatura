@@ -17,7 +17,7 @@ class Navegador:
         self.hora = datetime.datetime.now()
         self.data = self.hora.strftime("%d/%m/%Y")
         self.hora_atual = self.hora.strftime("%H:%M:%S")
-        self.dados = pd.DataFrame({"Temperatura": [self.temperatura],
+        self.dados = pd.DataFrame({"Temperatura": [self.temperatura + ' ºC'],
                                     "Umidade": [self.umidade],
                                     "Data": [self.data],
                                     "Hora": [self.hora_atual]})
