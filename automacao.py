@@ -4,9 +4,6 @@ from selenium.webdriver.common.keys import Keys # interagir com elementos
 import datetime
 import pandas as pd
 
-#opcoes = webdriver.ChromeOptions()
-#opcoes.add_experimental_option("detach", True)
-
 
 class Navegador:
     def __init__(self):
@@ -20,10 +17,11 @@ class Navegador:
         self.hora = datetime.datetime.now()
         self.data = self.hora.strftime("%d/%m/%Y")
         self.hora_atual = self.hora.strftime("%H:%M:%S")
-        self.dados = pd.DataFrame({"Temperatura": [self.temperatura], "Umidade": [self.umidade], 
-                                   "Data": [self.data], "Hora": [self.hora_atual]})
+        self.dados = pd.DataFrame({"Temperatura": [self.temperatura],
+                                    "Umidade": [self.umidade],
+                                    "Data": [self.data],
+                                    "Hora": [self.hora_atual]})
         self.dados.to_csv("historico.csv", index=False, mode="a", header=None)
-        #print(f"Temperatura: {self.temperatura}ºC\nUmidade: {self.umidade}\nData: {self.data}\nHora: {self.#hora_atual}")
         self.driver.quit()
 
 
