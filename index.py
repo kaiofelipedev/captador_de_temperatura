@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import automacao as auto
 
 janela = Tk()
 janela.title("Clima São Paulo")
@@ -29,7 +30,7 @@ tabela.place(relx=.25, rely=.1, relwidth=.74, relheight=.85)
 # Botão
 
 bt_pesquisa = Button(janela, text="Pesquisar", font=("verdana", 12, "bold"), fg="#F2EAE4",
-                     bg="#734E38", border=6, relief="groove")
+                     bg="#734E38", border=6, relief="groove", command=auto.Navegador)
 bt_pesquisa.place(rely=.3, relwidth=.25, relheight=.1)
 
 janela.mainloop()
