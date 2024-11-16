@@ -20,9 +20,11 @@ class Navegador:
         self.hora = datetime.datetime.now()
         self.data = self.hora.strftime("%d/%m/%Y")
         self.hora_atual = self.hora.strftime("%H:%M:%S")
-        self.dados = pd.DataFrame({self.temperatura: [], self.umidade: [], self.data: [], self.hora_atual: []})
-        self.dados.to_csv("historico.csv", mode="a")
+        self.dados = pd.DataFrame({"Temperatura": [self.temperatura], "Umidade": [self.umidade], 
+                                   "Data": [self.data], "Hora": [self.hora_atual]})
+        self.dados.to_csv("historico.csv", index=False, mode="a", header=None)
         #print(f"Temperatura: {self.temperatura}ºC\nUmidade: {self.umidade}\nData: {self.data}\nHora: {self.#hora_atual}")
-        #self.driver.quit()
+        self.driver.quit()
 
-Navegador()
+
+#Navegador()

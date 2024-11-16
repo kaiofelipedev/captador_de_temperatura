@@ -1,6 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 import automacao as auto
+import pandas as pd
+    
+
 
 janela = Tk()
 janela.title("Clima São Paulo")
@@ -16,16 +19,20 @@ lb_titulo.place(relx=.3, relwidth=.4, relheight=.1)
 
 # Treeview
 
-tabela = ttk.Treeview(janela, columns=("Umidade do ar", "Data", "Hora"))
-tabela.column("#0", anchor=CENTER, width=15)
-tabela.heading("#0", text="Temperatura")
-tabela.column("Umidade do ar", anchor=CENTER, width=5)
-tabela.heading("Umidade do ar", text="Umidade")
+arq = pd.read_csv("historico.csv")
+tabela = ttk.Treeview(janela, columns=("Temperatura", "Umidade", "Data", "Hora"))
+tabela.column("#0", width=0, stretch=NO)
+tabela.column("Temperatura", anchor="center", width=15)
+tabela.heading("Temperatura", text="Temperatura")
+tabela.column("Umidade", anchor=CENTER, width=5)
+tabela.heading("Umidade", text="Umidade")
 tabela.column("Data", anchor=CENTER, width=10)
 tabela.heading("Data", text="Data")
 tabela.column("Hora", anchor=CENTER, width=10)
 tabela.heading("Hora", text="Hora")
 tabela.place(relx=.25, rely=.1, relwidth=.74, relheight=.85)
+for x, y in arq.iterrows():
+    tabela.insert("", "end", values=(y['Temperatura'], y['Umidade'], y['Data'], y['Hora']))
 
 # Botão
 
