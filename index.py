@@ -37,7 +37,7 @@ lb_titulo.place(relx=.3, relwidth=.4, relheight=.1)
 
 # Botão
 
-bt_pesquisa = Button(janela, text="Pesquisar", font=("verdana", 12, "bold"), fg="#F2EAE4",
+bt_pesquisa = Button(janela, text="Atualizar", font=("verdana", 12, "bold"), fg="#F2EAE4",
                      bg="#734E38", border=6, relief="groove", command=auto.Navegador)
 bt_pesquisa.place(rely=.3, relwidth=.25, relheight=.1)
 
